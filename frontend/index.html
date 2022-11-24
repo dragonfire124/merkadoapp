@@ -26,30 +26,5 @@
     </div>
     
     <script  src ="main.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AdhGWAGlcYEGqnO7nkSlsLC2TNAbAigLT8xaCLyU9sOOjnlVEsNHcgI87IiWVg_3Y26SIbKRwnA5AgJe&currency=MXN&disable-funding=card"></script>
-     
-    <script>paypal.Buttons({
-       style: {
- 
-    color:  'blue',
- 
-  },
-
-  createOrder: function(data,actions){
-    return actions.order.create({
-        purchase_units:[{
-            amount:{
-                value: '0.1'
-            }
-        }]
-    })
-  },
-
-  onApprove: function(data,actions){
-    return actions.order.capture().then(function(details){
-        console.log('details')
-    })}
-    }).render("#paypal-payment-button")</script> 
-  
 </body>
 </html>
