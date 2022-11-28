@@ -33,7 +33,7 @@ app.get('/api/paypal/clientId', (req,res)=>{
 app.use('/uploads', express.static(path.join(__dirname, '/../uploads')))
 app.use(express.static(path.join(__dirname, '/../frontend')));
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'/../frontend/index.js'));
+  res.sendFile(path.join(__dirname,'/../frontend/index.html'));
 })
 
 
