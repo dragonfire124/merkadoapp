@@ -51,12 +51,3 @@ export const redirectUSer =()=>{
     }
 }
 
-export const renderFunction =()=>{
-    paypal.Buttons({
-        style: {
-  
-     color:  'blue',
-  
-   }
-     }).render("#paypal-payment-button")
-}
