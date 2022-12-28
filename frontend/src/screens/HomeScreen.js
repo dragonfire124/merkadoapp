@@ -9,7 +9,7 @@ const HomeScreen ={
        }
         return `
         <ul class="products">
-        ${products.map (product => `
+        ${products.map(product => `
         <li>
                 <div class="product">
                 <a href="/#/product/${product._id}">
