@@ -36,7 +36,6 @@ app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'/../frontend/index.html'));
 })
 
-
 app.use((err,req,res)=>{
   const status = err.name && err.name === 'ValidationError'? 400:500;
   res.status(status).send({message: err.message})

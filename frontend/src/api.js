@@ -2,6 +2,7 @@ import axios from "axios";
 import { apiUrl } from "./config";
 import { getUserInfo } from "./localStorage";
 
+
 export const getProduct = async(id)=>{
     try {
         const response = await axios({
@@ -84,7 +85,7 @@ export const deleteProduct = async (productId) => {
     }
   };
 
-                        // CREATE PRODUCT
+    // Update product  
 
     export  const updateProduct = async(product)=>{
                             try {
@@ -133,6 +134,9 @@ export  const uploadProductImage = async(formData)=>{
         return {error: err.response.data.message || err.message};
     }
 }
+
+                        // CRUD USERS
+
 export const signin = async ({email,password})=>{
     try {
         const response = await  axios({
@@ -156,6 +160,8 @@ export const signin = async ({email,password})=>{
     }
 };
 
+
+// Create new user
 export const register = async ({name, email,password})=>{
     try {
         const response = await  axios({                         //  
@@ -180,7 +186,7 @@ export const register = async ({name, email,password})=>{
     }
 };
 
-
+// Update user info
 export const update = async ({name, email,password})=>{
     try {
         const {_id,token}= getUserInfo();
@@ -207,13 +213,15 @@ export const update = async ({name, email,password})=>{
     }
 };
 
+                        // CRUD ORDERS
+// Create Order
 export const createOrder = async(order) => {
     try {
         const {token} =  getUserInfo();
         const response  = await axios({
             url:`${apiUrl}/api/orders`,
             method: 'POST',
-            headers: {
+            headers: {  
                 'Content-Type':'application/json',
                 Authorization: `Bearer ${token}`,
             },
@@ -228,6 +236,7 @@ export const createOrder = async(order) => {
     }
 }
 
+// Search an order 
 export const getOrder = async(id)=>{
 try {
     const {token}= getUserInfo();                                       // Obtiene info de usuario en localStorage
@@ -247,7 +256,7 @@ try {
 }
 }
 
-
+// Search several orders
 export const getOrders = async()=>{
     try {
         const {token}= getUserInfo();                                       // Obtiene info de usuario en localStorage
@@ -267,7 +276,7 @@ export const getOrders = async()=>{
     }
 }
 
-
+// Delete order
 export const deleteOrder = async (orderId) => {
     try {
       const { token } = getUserInfo();
@@ -324,7 +333,7 @@ export const getPaypalClientId = async()=>{
     return response.data.clientId;
 }
 
-
+// 
 export const getSummary = async()=>{
     try {
         const {token}= getUserInfo();                                       // Obtiene info de usuario en localStorage

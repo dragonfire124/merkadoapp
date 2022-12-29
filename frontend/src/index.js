@@ -38,9 +38,11 @@ const routes = {
 async function router() {
     showLoading();
     const request = parseRequestUrl();
+    
     const parseUrl = (request.resource ? `/${request.resource}` : '/') +
         (request.id ? '/:id' : '') +
         (request.verb ? `/${request.verb}` : '');
+    
     const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
     const header = document.getElementById('header-container');
     header.innerHTML = await Header.render();

@@ -63,6 +63,7 @@ orderRouter.get('/', isAuth, isAdmin,  expressAsyncHandler(async(req,res)=>{    
     res.send(orders);
 }));
 
+// Create new order
 orderRouter.post(
 '/',
 isAuth,
